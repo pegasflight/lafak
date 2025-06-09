@@ -1,4 +1,4 @@
-
+from io import StringIO  
 import streamlit as st
 import pandas as pd
 
@@ -28,7 +28,7 @@ Amazigh Language,-,-,-,-,-,-,2
 Art Subject 1,-,-,-,-,-,-,5
 Art Subject 2,-,-,-,-,-,-,5"""
 
-branch_weights_df = pd.read_csv(pd.compat.StringIO(branch_weights))
+branch_weights_df = pd.read_csv(StringIO(branch_weights))
 branch_weights_df = branch_weights_df.set_index(branch_weights_df.columns[0])
 
 branch_options = branch_weights_df.columns.tolist()
