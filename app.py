@@ -36,7 +36,7 @@ branch_options = branch_weights_df.columns.tolist()
 # Helper: get subjects for a branch
 def get_subjects_for_branch(branch):
     subjects = branch_weights_df[branch]
-    return [s for s in subjects.index if subjects[s] != '-' and pd.notnull(subjects[s])]
+    return [s for s, val in subjects.items() if val != '-' and pd.notnull(val)]
 
 # Helper: get weights for a branch
 def get_weights_for_branch(branch):
