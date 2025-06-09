@@ -97,9 +97,16 @@ branch = st.selectbox('High School Branch', branch_options)
 subjects = get_subjects_for_branch(branch)
 
 subject_scores = {}
-for subject in subjects:
-    score = st.number_input(subject + ' score', min_value=0.0, max_value=20.0, step=0.01, format='%0.2f')
-    subject_scores[subject] = score
+for subject in subjects:  
+    score = st.number_input(  
+        subject + ' score',  
+        min_value=0.0,  
+        max_value=20.0,  
+        step=0.01,  
+        format='%0.2f',  
+        key=subject  # This line ensures each input is unique  
+    )  
+    subject_scores[subject] = score  
 
 if st.button('Calculate Eligibility'):
     bac_avg = calculate_bac_average(branch, subject_scores)
